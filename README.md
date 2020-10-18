@@ -37,13 +37,12 @@ Object methodReturnValue = operationBinding.getResult();
 
 ## View
 
-### Refresh UI Component
+### Refresh UI Component in Backing Bean
 
 ```java
 UIComponent xxxComponent = ...
 
 AdfFacesContext adfFacesContext = AdfFacesContext.getCurrentInstance();
 adfFacesContext.addPartialTarget(xxxComponent);
-}
 ```
 
