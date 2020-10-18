@@ -34,3 +34,16 @@ if (!operationBinding.getErrors().isEmpty()) {
 //return value (optional)
 Object methodReturnValue = operationBinding.getResult();
 ```
+
+## View
+
+### Refresh UI Component
+
+```java
+UIComponent xxxComponent = ...
+
+AdfFacesContext adfFacesContext = AdfFacesContext.getCurrentInstance();
+adfFacesContext.addPartialTarget(xxxComponent);
+}
+```
+
