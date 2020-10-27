@@ -45,4 +45,11 @@ UIComponent xxxComponent = ...
 AdfFacesContext adfFacesContext = AdfFacesContext.getCurrentInstance();
 adfFacesContext.addPartialTarget(xxxComponent);
 ```
+## Groovy
 
+## Javascript
+
+Component ID Lookup using 
+``` javascript
+AdfPage.PAGE.findComponentByAbsoluteId()
+```
