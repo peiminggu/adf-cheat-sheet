@@ -35,6 +35,16 @@ if (!operationBinding.getErrors().isEmpty()) {
 Object methodReturnValue = operationBinding.getResult();
 ```
 
+### Get Attribute Value by Binding  
+```java
+BindingContext bctx = BindingContext.getCurrent();
+BindingContainer bindings = bctx.getCurrentBindingsEntry();
+
+AttributeBinding attr = (AttributeBinding)bindings.getControlBinding("xxxValue");
+String xxxValue =(String)attr.getInputValue();
+
+```
+
 ## View
 
 ### Refresh UI Component in Backing Bean
