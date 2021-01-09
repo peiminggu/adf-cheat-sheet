@@ -45,6 +45,8 @@ String xxxValue =(String)attr.getInputValue();
 
 ```
 
+## Redirect
+
 ### Redirect to another view
 ```java
 public static void redirectToView(String viewId) {
