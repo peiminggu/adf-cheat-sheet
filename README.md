@@ -45,7 +45,7 @@ String xxxValue =(String)attr.getInputValue();
 
 ```
 
-### Redirect to another view or page
+### Redirect to another view
 ```java
 public static void redirectToView(String viewId) {
    FacesContext fCtx = FacesContext.getCurrentInstance();
@@ -61,6 +61,24 @@ public static void redirectToView(String viewId) {
 }
 ```
 
+### Redirect to another view by task flow navigation
+```java
+public static void navigateTo(String navigationOutcome) {
+     FacesContext context = FacesContext.getCurrentInstance();
+     Application application = context.getApplication();
+     application.getNavigationHandler().handleNavigation(context, null, navigationOutcome);
+}
+```
+
+### Redirect to another page by FacesContext
+```java
+FacesContext ctx = FacesContext.getCurrentInstance();
+try {
+     ctx.getExternalContext().redirect("xxx.jspx");
+} catch (IOException e) {
+     
+}
+```
 
 ## View
 
