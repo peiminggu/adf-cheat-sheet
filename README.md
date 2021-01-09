@@ -45,6 +45,23 @@ String xxxValue =(String)attr.getInputValue();
 
 ```
 
+### Redirect to another view or page
+```java
+public static void redirectToView(String viewId) {
+   FacesContext fCtx = FacesContext.getCurrentInstance();
+   ExternalContext eCtx = fCtx.getExternalContext();
+
+   String activityUrl = ControllerContext.getInstance().getGlobalViewActivityURL(viewId);
+   try {
+       eCtx.redirect(activityUrl);
+   } catch (IOException e) {
+       e.printStackTrace();
+       JSFUtils.addFacesErrorMessage("Exception when redirect to " + viewId);
+   }
+}
+```
+
+
 ## View
 
 ### Refresh UI Component in Backing Bean
