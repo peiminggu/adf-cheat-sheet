@@ -96,7 +96,17 @@ adfFacesContext.addPartialTarget(xxxComponent);
 
 ## Javascript
 
-Component ID Lookup using 
+### Find Component ID 
 ``` javascript
 AdfPage.PAGE.findComponentByAbsoluteId()
 ```
+
+### Call Javascript from bean
+```java
+public static void executeClientJavascript(String script) {
+     FacesContext facesContext = FacesContext.getCurrentInstance();
+     ExtendedRenderKitService service = Service.getRenderKitService(facesContext, ExtendedRenderKitService.class);
+     service.addScript(facesContext, script);
+}
+```
+
