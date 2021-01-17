@@ -109,4 +109,22 @@ public static void executeClientJavascript(String script) {
      service.addScript(facesContext, script);
 }
 ```
+### Call action on page load
 
+In jspx page, add in af:source
+```javascript
+function invokeLoadEvnt() {
+     if (window.AdfPage && window.AdfPage.PAGE && window.AdfPage.PAGE.isSynchronizedWithServer()) {
+          var button = AdfPage.PAGE.findComponentByAbsoluteId('xxx');
+          AdfActionEvent.queue(button,true);
+     }
+     else {
+          //wait 100 ms
+          window.setTimeout(invokeLoadEvnt, 100);
+     }
+}
+```
+In the jspx page under the af:document call the client listener
+```html
+<af:clientListener type="load" method="invokeLoadEvnt"/>
+```
