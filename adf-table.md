@@ -2,9 +2,6 @@
 
 Oracle ADF code mostly used, easy to copy paste
 
-
-## ADF Table
-
 ### Reset af:table pagination to first page
 ```java
   //add this at the end of the query method
