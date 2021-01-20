@@ -1,3 +1,8 @@
+# Oracle ADF Table Cheat Sheet
+
+Oracle ADF code mostly used, easy to copy paste
+
+
 ## ADF Table
 
 ### Reset af:table pagination to first page
