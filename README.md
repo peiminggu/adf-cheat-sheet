@@ -128,3 +128,22 @@ In the jspx page under the af:document call the client listener
 ```html
 <af:clientListener type="load" method="invokeLoadEvnt"/>
 ```
+
+## Security
+
+### Logout Programmatically
+```java
+import weblogic.servlet.security.ServletAuthentication;
+
+
+HttpServletRequest request = (HttpServletRequest)ectx.getRequest();  
+ServletAuthentication.logout(request);  
+ServletAuthentication.invalidateAll(request);   
+ServletAuthentication.killCookie(request);  
+fctx.responseComplete();  
+
+//clean session
+if (FacesContext.getCurrentInstance().getExternalContext().getSession(false) != null) {
+  ((HttpSession)FacesContext.getCurrentInstance().getExternalContext().getSession(false)).invalidate();
+}
+```
