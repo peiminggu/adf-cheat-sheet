@@ -1,14 +1,14 @@
 # Web, Servlet and JSP
 
-## Reading Environment Entries from web.xml
+## Read Environment Entries from web.xml
 
-### Reading property
+### Read property
 ```java
 Context ctx = new InitialContext();
 String value = (String) ctx.lookup("java:comp/env/VALUE_KEY");
 ```
 
-### Reading all properties
+### Read all properties
 
 ```java
 Context ctx = new InitialContext();
