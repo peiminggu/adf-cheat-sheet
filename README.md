@@ -92,6 +92,32 @@ UIComponent xxxComponent = ...
 AdfFacesContext adfFacesContext = AdfFacesContext.getCurrentInstance();
 adfFacesContext.addPartialTarget(xxxComponent);
 ```
+
+### Find Component from Root
+```java
+public static UIComponent findComponentFromRoot(UIComponent root, String targetComId) {
+   if (targetComId.equals(root.getId()))
+       return root;
+
+   UIComponent child = null;
+   UIComponent targetCom = null;
+   Iterator children = root.getFacetsAndChildren();
+   while (children.hasNext() && (targetCom == null)) {
+       child = (UIComponent)children.next();
+       if (targetComId.equals(child.getId())) {
+           targetCom = child;
+           break;
+       }
+       targetCom = findComponentFromRoot(child, targetComId);
+       if (targetCom != null) {
+           break;
+       }
+   }
+   return targetCom;
+}
+
+```
+
 ## Groovy
 
 ## Javascript
