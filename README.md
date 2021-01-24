@@ -169,7 +169,8 @@ ServletAuthentication.killCookie(request);
 fctx.responseComplete();  
 
 //clean session
-if (FacesContext.getCurrentInstance().getExternalContext().getSession(false) != null) {
-  ((HttpSession)FacesContext.getCurrentInstance().getExternalContext().getSession(false)).invalidate();
+ExternalContext ctx = FacesContext.getCurrentInstance().getExternalContext();
+if (ctx.getSession(false) != null) {
+  ((HttpSession)ctx.getSession(false)).invalidate();
 }
 ```
