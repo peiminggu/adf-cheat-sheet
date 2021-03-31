@@ -122,7 +122,7 @@ public static UIComponent findComponentFromRoot(UIComponent root, String targetC
 
 ### Get Database Sequence using Groovy
 ``` groovy
-(new oracle.jbo.server.SequenceImpl(“<YOUR SEQUENCE NAME>”,adf.object.getDBTransaction())).getSequenceNumber()
+(new oracle.jbo.server.SequenceImpl("<SEQUENCE NAME>",adf.object.getDBTransaction())).getSequenceNumber()
 ```
 
 ## Javascript
