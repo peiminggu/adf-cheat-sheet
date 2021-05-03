@@ -132,8 +132,22 @@ public static UIComponent findComponentFromRoot(UIComponent root, String targetC
 AdfPage.PAGE.findComponentByAbsoluteId()
 ```
 
+### Trigger buttom event by javascript
+``` javascript
+function customHandler(targetBtnClientId){
+   var targetCmd = AdfPage.PAGE.findComponentByAbsoluteId(targetBtnClientId);
+   var actionEvent = new AdfActionEvent(targetCmd);
+   actionEvent.forceFullSubmit();
+   actionEvent.noResponseExpected();
+   actionEvent.queue();
+}
+```
+
 ### Call Javascript from bean
 ```java
+import org.apache.myfaces.trinidad.render.ExtendedRenderKitService;
+import org.apache.myfaces.trinidad.util.Service;
+
 public static void executeClientJavascript(String script) {
      FacesContext facesContext = FacesContext.getCurrentInstance();
      ExtendedRenderKitService service = Service.getRenderKitService(facesContext, ExtendedRenderKitService.class);
