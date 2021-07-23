@@ -19,3 +19,10 @@ for (Enumeration<Binding> e = ctx.listBindings("java:comp/env"); e.hasMoreElemen
   String value = (String)bind.getObject());
 }
 ```
+
+### Stretch ADF Components width
+
+```
+styleClass="AFStretchWidth" 
+
+```
