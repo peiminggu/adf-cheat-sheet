@@ -93,6 +93,20 @@ AdfFacesContext adfFacesContext = AdfFacesContext.getCurrentInstance();
 adfFacesContext.addPartialTarget(xxxComponent);
 ```
 
+### Reset UI Component cached value in Backing Bean
+
+Set value to null doesn't work for String type attribute
+```java
+JSFUtils.setExpressionValue("#{bindings.xxxValue.inputValue}", "");
+
+//or (codes below haven't been verified)
+RichInputText input = (RichInputText)JSFUtils.findComponentInRoot(id); 
+input.setSubmittedValue(null); 
+input.resetValue(); 
+AdfFacesContext.getCurrentInstance().addPartialTarget(input);
+
+```
+
 ### Find Component from Root
 ```java
 public static UIComponent findComponentFromRoot(UIComponent root, String targetComId) {
